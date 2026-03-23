@@ -19,14 +19,12 @@ app.use(cors())
 app.use(express.json())
 
 // connect to mongoDB and process the mongo url
-mongoose.connect(process.env.MONGO_URI)
-.then(()=>{
-  console.log("DB connected")
-})
-.catch((err)=>{
-  console.log("error in connection",err)
-})
+app.get('/',(req,res)=>{
 
+  res.json({
+    "message":"health ok"
+  })
+})
 // api to get all task from db
 app.get('/getTask',getAllTask)
 
